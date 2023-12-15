@@ -41,3 +41,4 @@
 .\objects\main.o: ..\HARDWARE\KEY\key.h
 .\objects\main.o: ..\HARDWARE\LED\led.h
 .\objects\main.o: ..\HARDWARE\debug\debug_JustFloat.h
+.\objects\main.o: ..\HARDWARE\LSE\lse.h

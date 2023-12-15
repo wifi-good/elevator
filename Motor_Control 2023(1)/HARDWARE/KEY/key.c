@@ -8,11 +8,17 @@ void KEY_Init(void)
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 
- 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);//使能GPIOA时钟
-	
+ 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOB,ENABLE);//使能GPIOA时钟
+
 	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_12;//PA12
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
  	GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化PA12
+	
+	
+	
+	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2|GPIO_Pin_11|GPIO_Pin_13|GPIO_Pin_15;//PA12
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+ 	GPIO_Init(GPIOB, &GPIO_InitStructure);//初始化PA12
  
 
 	
@@ -34,12 +40,7 @@ u8 KEY_Scan(u8 mode)
 		if(KEY2==0)return KEY2_PRES;
 		if(KEY3==0)return KEY3_PRES;
 		if(KEY4==0)return KEY4_PRES;
-	}else if(KEY==1)key_up=1; 	     
+	}else if(KEY==1&&KEY1==1&&KEY2==1&&KEY3==1&&KEY4==1)key_up=1; 	     
 	return 0;// 无按键按下
 }
 
-//make elevator to the certain floor
-void Floor(void)
-{
-	
-}

@@ -42,3 +42,4 @@
 .\objects\timer.o: ..\HARDWARE\KEY\key.h
 .\objects\timer.o: ..\HARDWARE\LED\led.h
 .\objects\timer.o: ..\HARDWARE\debug\debug_JustFloat.h
+.\objects\timer.o: ..\HARDWARE\LSE\lse.h

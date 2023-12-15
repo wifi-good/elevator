@@ -13,11 +13,27 @@ OPENLOOPMODE:   LED常亮
 SPEEDMODE:      LED慢闪烁
 POSITIONMODE:   LED快闪烁
 */
-
+int Dir = 0;//show direction
+int NumFloor = 0;//to check the floor
+int KeyFlag = 0;//to show the value of key
 float speed = 0, refVoltage = 0, duty = 0,position=0,Ivalue=0;
 PIDStructure_t speedPIDStructure = {0},positionPIDStructure = {0},IPIDStructure = {0};
 float debugData[7];
 Mode_t mode = STOPMODE;
+
+
+int Direction(int KeyFlag)
+{
+	NumFloor = Check_Floor();
+	if(KeyFlag!=0&&KeyFlag!=1)
+	{
+		if(NumFloor>KeyFlag-1)return DOWN;
+		if(NumFloor==KeyFlag-1)return KEEP;
+		if(NumFloor<KeyFlag-1)return UP;
+	}
+	return 0;//mean keeping
+}
+
 
 int main(void)
 {	
@@ -47,13 +63,22 @@ int main(void)
 		debugData[6] = IPIDStructure.ref;
 		Debug_SendData(debugData, 7);
 		
-		if(KEY_Scan(0))
+		KeyFlag = KEY_Scan(0);
+		
+		
+		if(KeyFlag==KEY_PRES)
 		{
 			mode ++;
 			mode %= 4;
 			PID_Clear(&speedPIDStructure, 0);
 			PID_Clear(&positionPIDStructure, 0);
 			position = 0;
+		}
+		else if(KeyFlag==KEY1_PRES||KeyFlag==KEY2_PRES||KeyFlag==KEY3_PRES||KeyFlag==KEY1_PRES)
+		{
+			if(Direction(KeyFlag)==UP){}
+			else if(Direction(KeyFlag)==DOWN){}
+			else if(Direction(KeyFlag)==KEEP)duty=0;
 		}
 		//LED指示工作模式
 		if(mode == STOPMODE)

@@ -11,6 +11,7 @@
 #include "key.h"
 #include "led.h"
 #include "debug_JustFloat.h"
+#include "lse.h"
 
 
 extern float speed, refVoltage;
@@ -25,6 +26,10 @@ typedef enum
 }Mode_t;
 
 void mainControl(void);
+
+#define UP 1
+#define DOWN 2
+#define KEEP 0
 
 #define OPEN_LOOP_DEBUG	0
 

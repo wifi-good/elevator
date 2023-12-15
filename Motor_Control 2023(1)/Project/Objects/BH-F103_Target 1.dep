@@ -698,8 +698,8 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
-F (..\User\main.c)(0x657C1A17)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\User\main.h)(0x653A3182)
+F (..\User\main.c)(0x657C75C4)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\User\main.h)(0x657C737B)
 I (..\SYSTEM\delay\delay.h)(0x55CC2E5A)
 I (..\SYSTEM\sys\sys.h)(0x550F951C)
 I (..\Libraries\CMSIS\stm32f10x.h)(0x559784E2)
@@ -737,9 +737,10 @@ I (..\HARDWARE\TIMER\timer.h)(0x635690A2)
 I (..\HARDWARE\encoder\encoder.h)(0x6356946F)
 I (..\SYSTEM\usart\usart.h)(0x63569945)
 I (D:\MDK5.14\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (..\HARDWARE\KEY\key.h)(0x657C602A)
+I (..\HARDWARE\KEY\key.h)(0x657C7020)
 I (..\HARDWARE\LED\led.h)(0x636F9B65)
 I (..\HARDWARE\debug\debug_JustFloat.h)(0x63569A08)
+I (..\HARDWARE\LSE\lse.h)(0x657C705E)
 F (..\User\stm32f10x_it.c)(0x4EBEACB0)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
 I (..\User\stm32f10x_it.h)(0x4D99A426)
 I (..\Libraries\CMSIS\stm32f10x.h)(0x559784E2)
@@ -770,7 +771,7 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
-F (..\User\main.h)(0x653A3182)()
+F (..\User\main.h)(0x657C737B)()
 F (..\Doc\readme.txt)(0x57A1B758)()
 F (..\HARDWARE\ADC\adc.c)(0x657C1A17)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
 I (..\HARDWARE\ADC\adc.h)(0x653A3181)
@@ -864,7 +865,7 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
-I (..\User\main.h)(0x653A3182)
+I (..\User\main.h)(0x657C737B)
 I (..\SYSTEM\delay\delay.h)(0x55CC2E5A)
 I (..\SYSTEM\sys\sys.h)(0x550F951C)
 I (..\HARDWARE\PWM\pwm.h)(0x6356904E)
@@ -873,9 +874,10 @@ I (..\HARDWARE\pid\pid.h)(0x63568D95)
 I (..\HARDWARE\encoder\encoder.h)(0x6356946F)
 I (..\SYSTEM\usart\usart.h)(0x63569945)
 I (D:\MDK5.14\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (..\HARDWARE\KEY\key.h)(0x657C602A)
+I (..\HARDWARE\KEY\key.h)(0x657C7020)
 I (..\HARDWARE\LED\led.h)(0x636F9B65)
 I (..\HARDWARE\debug\debug_JustFloat.h)(0x63569A08)
+I (..\HARDWARE\LSE\lse.h)(0x657C705E)
 F (..\HARDWARE\encoder\encoder.c)(0x63569C25)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\encoder.o --omf_browse .\objects\encoder.crf --depend .\objects\encoder.d)
 I (..\HARDWARE\encoder\encoder.h)(0x6356946F)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x559784E2)
@@ -937,8 +939,8 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
-F (..\HARDWARE\KEY\key.c)(0x657C6042)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
-I (..\HARDWARE\KEY\key.h)(0x657C602A)
+F (..\HARDWARE\KEY\key.c)(0x657C6EB2)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+I (..\HARDWARE\KEY\key.h)(0x657C7020)
 I (..\SYSTEM\sys\sys.h)(0x550F951C)
 I (..\Libraries\CMSIS\stm32f10x.h)(0x559784E2)
 I (..\Libraries\CMSIS\core_cm3.h)(0x559784E2)
@@ -1009,10 +1011,10 @@ F (..\HARDWARE\TIMER\timer.h)(0x635690A2)()
 F (..\HARDWARE\pid\pid.h)(0x63568D95)()
 F (..\HARDWARE\encoder\encoder.h)(0x6356946F)()
 F (..\HARDWARE\LED\led.h)(0x636F9B65)()
-F (..\HARDWARE\KEY\key.h)(0x657C602A)()
+F (..\HARDWARE\KEY\key.h)(0x657C7020)()
 F (..\HARDWARE\debug\debug_JustFloat.h)(0x63569A08)()
-F (..\HARDWARE\LSE\lse.c)(0x657C5D56)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\lse.o --omf_browse .\objects\lse.crf --depend .\objects\lse.d)
-I (..\HARDWARE\LSE\lse.h)(0x657C5D57)
+F (..\HARDWARE\LSE\lse.c)(0x657C75E7)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\lse.o --omf_browse .\objects\lse.crf --depend .\objects\lse.d)
+I (..\HARDWARE\LSE\lse.h)(0x657C705E)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x559784E2)
 I (..\Libraries\CMSIS\stm32f10x.h)(0x559784E2)
 I (..\Libraries\CMSIS\core_cm3.h)(0x559784E2)
@@ -1041,8 +1043,8 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
-I (..\HARDWARE\KEY\key.h)(0x657C602A)
 I (..\SYSTEM\sys\sys.h)(0x550F951C)
+I (..\HARDWARE\KEY\key.h)(0x657C7020)
 F (..\SYSTEM\delay\delay.c)(0x634D561D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\HARDWARE\ADC -I..\HARDWARE\LED -I..\HARDWARE\pid -I..\HARDWARE\PWM -I..\HARDWARE\TIMER -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\User -I..\HARDWARE\encoder -I..\HARDWARE\KEY -I..\HARDWARE\debug -I..\HARDWARE\LSE-I "E:\文件\大学\信号与控制\elevator\Motor_Control 2023(1)\Project\RTE"-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0-I D:\MDK5.14\ARM\CMSIS\Include-I D:\MDK5.14\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="514" -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_LD-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x55CC2E5A)
 I (..\SYSTEM\sys\sys.h)(0x550F951C)

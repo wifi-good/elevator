@@ -1,6 +1,7 @@
 #ifndef __LSE_H
 #define __LSE_H	
 #include "stm32f10x_adc.h"
+#include "sys.h"
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK战舰STM32开发板
 //ADC 代码	   
@@ -12,7 +13,12 @@
 //Copyright(C) 广州市星翼电子科技有限公司 2009-2019
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 
-void LSE_Init(void);
+#define SecondFloor GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1)
+#define ThirdFloor GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_10)
+#define FourthFloor GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_12)
 
+void LSE_Init(void);
+u8 Check_Floor(void);
+void LSE_Stop(void);
 
 #endif 

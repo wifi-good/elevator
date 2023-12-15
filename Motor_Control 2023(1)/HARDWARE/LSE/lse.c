@@ -1,7 +1,7 @@
 #include "lse.h"
 #include "key.h"
 
-extern duty;
+extern float duty;
 
 void LSE_Init(void)
 {
@@ -29,8 +29,17 @@ void LSE_Init(void)
 //make elevator stop
 void LSE_Stop(void)
 {
-	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1) == 0) duty=0;
-	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_10) == 0) duty=0;
-	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_12) == 0) duty=0;
+	if(SecondFloor==0) duty=0;
+	if(ThirdFloor==0) duty=0;
+	if(FourthFloor==0) duty=0;
 }
 
+//check the floor
+u8 Check_Floor(void)
+{
+	if(SecondFloor==0) return 2;
+	if(ThirdFloor==0) return 3;
+	if(FourthFloor==0) return 4;
+	if(SecondFloor==1&&ThirdFloor==0&&FourthFloor==0)return 1;
+	return 0;
+}
