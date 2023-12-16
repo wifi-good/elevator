@@ -37,9 +37,9 @@ void LSE_Stop(void)
 //check the floor
 u8 Check_Floor(void)
 {
-	if(SecondFloor==0) return 2;
-	if(ThirdFloor==0) return 3;
-	if(FourthFloor==0) return 4;
-	if(SecondFloor==1&&ThirdFloor==0&&FourthFloor==0)return 1;
+	if(SecondFloor==1) return 2;
+	else if(ThirdFloor==1) return 3;
+	else if(FourthFloor==1) return 4;
+	else if(SecondFloor==0&&ThirdFloor==0&&FourthFloor==0)return 1;
 	return 0;
 }

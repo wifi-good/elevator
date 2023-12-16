@@ -60,7 +60,7 @@ float GetADC1Voltage(void)
 {
 	static float voltage = 0;
 	voltage = dmaadc[0] * 8.06e-6f + 0.99f * voltage;
-	Ivalue=-0.f*(dmaadc[1]-2275.f)*0.00594f;			
+	Ivalue=-1.f*(dmaadc[1]-2275.f)*0.00594f;					
 	//使能指定的ADC1的软件转换启动功能	
 	return voltage;
 }
