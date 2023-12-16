@@ -2,6 +2,7 @@
 #include "key.h"
 
 extern float duty;
+extern int NumFloor;
 
 void LSE_Init(void)
 {
@@ -29,9 +30,9 @@ void LSE_Init(void)
 //make elevator stop
 void LSE_Stop(void)
 {
-	if(SecondFloor==0) duty=0;
-	if(ThirdFloor==0) duty=0;
-	if(FourthFloor==0) duty=0;
+	if(SecondFloor==1) duty=0,NumFloor=2;
+	if(ThirdFloor==1) duty=0,NumFloor=3;
+	if(FourthFloor==1) duty=0,NumFloor=4;
 }
 
 //check the floor

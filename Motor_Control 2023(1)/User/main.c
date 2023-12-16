@@ -1,11 +1,5 @@
 #include "main.h"
-//////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途			   
-//版权所有，盗版必究。
-//Copyright@包浚炀，何汰航，吕清扬，李天熙，刘建胜
-//All rights reserved
-////////////////////////////////////////////////////////////////////////////////// 	  
- 
+
 /*	
 按下按键KEY可顺序切换以下4种模式，对应LED指示如下：
 STOPMODE:       LED灭
@@ -16,16 +10,33 @@ POSITIONMODE:   LED快闪烁
 
 int NumFloor = 0;//to check the floor
 int KeyFlag = 0;//to show the value of key
-int KeyFloor = 0;
+int KeyFloor = 2;//KeyFloor-1 is the floor to the key
 float speed = 0, refVoltage = 0, duty = 0,position=0,Ivalue=0;
 PIDStructure_t speedPIDStructure = {0},positionPIDStructure = {0},IPIDStructure = {0};
 float debugData[11];
 Mode_t mode = STOPMODE;
 
-
-int Direction(int KeyFloor)
+void SpeedModeUP_Init(void)
 {
-	NumFloor = Check_Floor();
+	speedPIDStructure.ref = (refVoltage - 1.65f) * 3409.f;
+	duty = PID_Calc(&speedPIDStructure, speed);
+}
+
+void SpeedModeDOWN_Init(void)
+{
+	speedPIDStructure.ref = (refVoltage - 1.65f) * 3409.f;
+	duty = -PID_Calc(&speedPIDStructure, speed);
+}
+
+void SpeedModeKEEP_Init(void)
+{
+	duty=0;
+}
+
+
+int Direction(int KeyFloor,int NumFloor)
+{
+	
 	if(KeyFloor!=0&&KeyFloor!=1)
 	{
 		if(NumFloor>KeyFloor-1)return DOWN;
@@ -35,6 +46,16 @@ int Direction(int KeyFloor)
 	return 0;//mean keeping
 }
 
+int Check_KeyFloor(void)
+{
+	KeyFlag = KEY_Scan(0);
+		
+	if(KeyFlag==KEY1_PRES)return KEY1_PRES;
+	if(KeyFlag==KEY2_PRES)return KEY2_PRES;
+	if(KeyFlag==KEY3_PRES)return KEY3_PRES;
+	if(KeyFlag==KEY4_PRES)return KEY4_PRES;
+	return 1;
+}
 
 int main(void)
 {	
@@ -51,10 +72,11 @@ int main(void)
 	LED_Init();
 	KEY_Init();
 	LSE_Init();
+	NumFloor=Check_Floor();//Initilize the floor
   while(1)
 	{
 		static u16 count=0;//LED显示计数
-		int Dir =  Direction(KeyFloor);
+		int Dir =  Direction(KeyFloor,NumFloor);
 		delay_ms(1);
 		debugData[0] = position;
 		debugData[1] = positionPIDStructure.ref;
@@ -67,15 +89,11 @@ int main(void)
 		debugData[8] = KeyFloor-1;
 		debugData[9] = Dir;
 		debugData[10] = mode;
+
 		Debug_SendData(debugData, 11);
 		
-		KeyFlag = KEY_Scan(0);
 		
-		if(KeyFlag==KEY1_PRES)KeyFloor=KEY1_PRES;
-		if(KeyFlag==KEY2_PRES)KeyFloor=KEY2_PRES;
-		if(KeyFlag==KEY3_PRES)KeyFloor=KEY3_PRES;
-		if(KeyFlag==KEY4_PRES)KeyFloor=KEY4_PRES;
-		
+		KeyFloor = Check_KeyFloor();
 		
 		LSE_Stop();
 		
@@ -89,20 +107,9 @@ int main(void)
 		}
 		else if(KeyFlag==KEY1_PRES||KeyFlag==KEY2_PRES||KeyFlag==KEY3_PRES||KeyFlag==KEY4_PRES)
 		{
-			if(Direction(KeyFlag)==UP)
-			{
-//				refVoltage = GetADC1Voltage();
-//				duty = (refVoltage - 1.65f) * 0.303f;
-					mode=SPEEDMODE;
-			}
-			else if(Direction(KeyFlag)==DOWN)
-			{
-//				refVoltage = GetADC1Voltage();
-//				duty = -(refVoltage - 1.65f) * 0.303f;
-					mode=SPEEDMODE;
-			}
-			else if(Direction(KeyFlag)==KEEP)duty=0;
+			mode=SPEEDMODE;
 		}
+		
 		//LED指示工作模式
 		if(mode == STOPMODE)
 		{
@@ -140,7 +147,16 @@ void mainControl(void)	//tim2定时器，频率1kHz
 	position+=speed*0.000104719755f;
 	
 	refVoltage = GetADC1Voltage();
-	NumFloor=Check_Floor();
+	
+	
+	if(NumFloor==2&&KeyFloor==1)
+	{
+		SpeedModeDOWN_Init();
+		delay_ms(2000);// this parameter is uncertain
+		SpeedModeKEEP_Init();
+		NumFloor = Check_Floor();
+		mode = STOPMODE;
+	}
 	
 	if(mode == STOPMODE)
 	{
@@ -152,8 +168,9 @@ void mainControl(void)	//tim2定时器，频率1kHz
 	}
 	else if(mode == SPEEDMODE)//以下速度环程序是未加入电流环的，如果需要加入电流环，请参考讲义自行增改。
 	{
-		speedPIDStructure.ref = (refVoltage - 1.65f) * 3409.f;
-		duty = PID_Calc(&speedPIDStructure, speed);
+		if(Direction(KeyFloor,NumFloor)==UP) SpeedModeUP_Init();
+		else if(Direction(KeyFloor,NumFloor)==DOWN) SpeedModeDOWN_Init();
+		else if(Direction(KeyFloor,NumFloor)==KEEP) SpeedModeKEEP_Init();
 	}
 	else if(mode == POSITIONMODE)//以下位置环程序是未加入电流环的，如果需要加入电流环，请参考讲义自行增改。
 	{
