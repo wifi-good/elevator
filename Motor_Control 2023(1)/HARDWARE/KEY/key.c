@@ -8,17 +8,15 @@ void KEY_Init(void)
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 
- 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOB,ENABLE);//使能GPIOA时钟
+ 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);//使能GPIOA时钟
 
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_12;//PA12
+	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_12|GPIO_Pin_0|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5;//PA12
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
  	GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化PA12
 	
 	
 	
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2|GPIO_Pin_11|GPIO_Pin_13|GPIO_Pin_15;//PA12
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
- 	GPIO_Init(GPIOB, &GPIO_InitStructure);//初始化PA12
+	
  
 
 	

@@ -13,7 +13,7 @@ OPENLOOPMODE:   LED常亮
 SPEEDMODE:      LED慢闪烁
 POSITIONMODE:   LED快闪烁
 */
-int Dir = 0;//show direction
+
 int NumFloor = 0;//to check the floor
 int KeyFlag = 0;//to show the value of key
 float speed = 0, refVoltage = 0, duty = 0,position=0,Ivalue=0;
@@ -76,8 +76,16 @@ int main(void)
 		}
 		else if(KeyFlag==KEY1_PRES||KeyFlag==KEY2_PRES||KeyFlag==KEY3_PRES||KeyFlag==KEY1_PRES)
 		{
-			if(Direction(KeyFlag)==UP){}
-			else if(Direction(KeyFlag)==DOWN){}
+			if(Direction(KeyFlag)==UP)
+			{
+				refVoltage = GetADC1Voltage();
+				duty = (refVoltage - 1.65f) * 0.303f;
+			}
+			else if(Direction(KeyFlag)==DOWN)
+			{
+				refVoltage = GetADC1Voltage();
+				duty = -(refVoltage - 1.65f) * 0.303f;
+			}
 			else if(Direction(KeyFlag)==KEEP)duty=0;
 		}
 		//LED指示工作模式
@@ -138,6 +146,7 @@ void mainControl(void)	//tim2定时器，频率1kHz
 		duty = PID_Calc(&speedPIDStructure, speed);
 	}
 	
+	LSE_Stop();
 	PWM_Modulation(duty);//PA8为TIM1_CH1 PA9为TIM1_CH2 最终效果是互补输出
 }
 //    TIM_SetCompare1(TIM1,(0.5f+duty*0.5f)*3600.f);
