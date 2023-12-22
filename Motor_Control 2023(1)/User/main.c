@@ -82,8 +82,8 @@ int main(void)
 	ADC1_Init();//adc初始化
 	TIM3_Encoder_Init();//TIM3编码器模式初始化
 	
-	PID_Init(&positionPIDStructure,1000, 400, 0, 0, 0.001,-5000, 5000, 0);//参考一下pid.c了解这几个参数的意义。
-	PID_Init(&speedPIDStructure,10.3, 6.8, 0, 0, 0.001,-0.98, 0.98, 0);//  提示！！当加入电流环时需要修改速度环-0.98与0.98，可以参考pid的过程以及具体代码思考一下应改为多少？
+	PID_Init(&positionPIDStructure,7, 2, 0, 0, 0.001,-5000, 5000, 0);//参考一下pid.c了解这几个参数的意义。
+	PID_Init(&speedPIDStructure,0.0005, 0.001, 0, 0, 0.001,-0.98, 0.98, 0);//  提示！！当加入电流环时需要修改速度环-0.98与0.98，可以参考pid的过程以及具体代码思考一下应改为多少？
 	PID_Init(&IPIDStructure,0, 1, 0, 0, 0.001,-0.98, 0.98, 0);//
 	TIM1_PWM_Init(3599,0);//TIM1输出初始化。不分频。PWM频率=72000/(3599+1)=20kHz 
 	TIM2_Int_Init(7199,10);//TIM2中断初始化。中断频率=72000000/10/7200=1kHz
@@ -207,26 +207,9 @@ void mainControl(void)	//tim2定时器，频率1kHz
 	}
 	else if(mode == POSITIONMODE)//以下位置环程序是未加入电流环的，如果需要加入电流环，请参考讲义自行增改。
 	{
-		if(Direction(KeyFloor,NumFloor)==UP) POSModeUP_Init();
-		else if(Direction(KeyFloor,NumFloor)==DOWN)
-		{
-			if(NumFloor==2&&KeyFloor==2)
-			{
-				POSModeDOWN_Init();
-				TFlag++;
-				if(TFlag%4000==0)
-				{
-					TFlag=1;
-					NumFloor=1;
-					duty=0;
-					mode = STOPMODE;
-				}
-				
-			}
-			else POSModeDOWN_Init();
-		}
-			
-		else if(Direction(KeyFloor,NumFloor)==KEEP) POSModeKEEP_Init();
+		positionPIDStructure.ref = (KeyFloor-NumFloor)*(refVoltage - 1.65f) * 50.f;	
+		speedPIDStructure.ref = PID_Calc(&positionPIDStructure, position);
+		duty = PID_Calc(&speedPIDStructure, speed);
 	}
 	
 	
